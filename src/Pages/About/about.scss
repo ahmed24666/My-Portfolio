@@ -1,0 +1,110 @@
+.About {
+  display: flex;
+  margin-top: 80px;
+  gap: 50px;
+  overflow: hidden;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .left {
+    min-width: 45%;
+    min-height: calc(100vh - 80px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    border-right: 1px solid #8f0000;
+    @media (max-width: 900px) {
+      min-height: 0;
+      border: none;
+    }
+    h2 {
+      font-family: "Great Vibes", cursive;
+      letter-spacing: 2px;
+      font-size: 30px;
+      color: #8f0000;
+    }
+    h1 {
+      letter-spacing: 2px;
+      font-size: 50px;
+      font-weight: 500;
+      font-family: var(--fh);
+      @media (max-width: 500px) {
+        font-size: 40px;
+      }
+    }
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .right {
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    @media (max-width:767px) {
+      margin-bottom: 50px;
+    }
+    .head {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 27px;
+        color: #8f0000;
+      }
+      .dot {
+        width: 15px;
+        height: 15px;
+        background-color: #8f0000;
+        transform: rotate(45deg);
+      }
+      h1 {
+        font-family: var(--fh);
+        text-transform: capitalize;
+        letter-spacing: 1px;
+      }
+    }
+    .using {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        .dots {
+          width: 10px;
+          height: 10px;
+          background-color: #8f0000;
+          transform: rotate(45deg);
+        }
+        .name {
+          font-size: 20px;
+          letter-spacing: 1px;
+          color: rgb(51, 51, 51);
+          text-transform: capitalize;
+          font-family: var(--f);
+        }
+      }
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+    }
+  }
+}

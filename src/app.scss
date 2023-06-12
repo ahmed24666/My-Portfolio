@@ -1,0 +1,16 @@
+:root{
+    --fh:'Playfair Display', serif;
+    --f:'Lora', serif;    
+    --mcolor:#8f0000;    
+    --scolor:#f0eed7;    
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+.app{
+    &::selection{
+        background-color: #8f0000;
+        color: #000;
+    }
+}

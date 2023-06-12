@@ -1,0 +1,151 @@
+.Nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  z-index: 9;
+  a.active {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 15%;
+      right: -50px;
+      width: 2px;
+      height: 80%;
+      background-color: #f0eed7;
+      border-radius: 50%;
+      @media (max-width: 900px) {
+        right: -15px;
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    background-color: #f0eed7;
+  }
+  .icon {
+    width: 100px;
+    @media (max-width: 500px) {
+      width: 70px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+  .heading {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 500;
+    font-size: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-left: 20px;
+  }
+  .hdc{
+    color: #f0eed7;
+  }
+  .menu-toggle {
+    margin-right: 20px;
+    @media (max-width: 500px) {
+      margin-right: 5px;
+    }
+    .hamBox {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      transition: 0.3s ease;
+      padding: 20px;
+      &:hover {
+        background: #8f0000;
+      }
+    }
+    .hamBoxOpen {
+      background: #8f0000;
+    }
+    .lineTop,
+    .lineBottom {
+      margin: 0 auto;
+      position: absolute;
+      display: block;
+      width: 24px;
+      height: 2px;
+      border-radius: 10px;
+      background: black;
+      left: 0;
+      right: 0;
+      transform: rotate(0deg);
+      transition: all 0.4s;
+    }
+    .lineTop {
+      top: 30px;
+    }
+    .lineBottom {
+      bottom: 30px;
+    }
+    .lineTop.spin {
+      position: absolute;
+      top: 34px;
+      // bottom: -110px;
+      transform: rotate(135deg);
+      background: #f0eed7;
+    }
+    .lineBottom.spin {
+      bottom: 34px;
+      transform: rotate(225deg);
+      background: #f0eed7;
+    }
+  }
+  .nav-overlay {
+    position: fixed;
+    background: #8f0000;
+    z-index: -2;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+    ul.nav-links {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .nav-item-wrapper:after {
+        content: "";
+        position: absolute;
+        top: 120px;
+        left: -10%;
+        width: 140%;
+        height: 100%;
+        background: rgb(143, 0, 0);
+        margin: 0 auto;
+      }
+      li {
+        list-style: none;
+        position: relative;
+        a {
+          text-decoration: none;
+          color: #f0eed7;
+          font-family: var(--fh);
+          font-size: 6em;
+          position: relative;
+          top: 0;
+          transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+          @media (max-width: 900px) {
+            font-size: 5em;
+          }
+        }
+      }
+    }
+  }
+}
