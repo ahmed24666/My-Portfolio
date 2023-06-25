@@ -8,19 +8,21 @@ import AnimatedCursor from "react-animated-cursor"
 import './app.scss'
 import Product from "./Pages/Project/Product";
 import { useEffect, useState } from "react";
+import useGetData from "./custom-hook/useGetData";
 function App() {
   const LayOut = () => {
     const [navOpen, setNavOpen] = useState(false);
-    const [isLoader, setIsLoader] = useState(false)
-    useEffect(() => {
-      setIsLoader(true)
-      setTimeout(() => {
-        setIsLoader(false)
-      }, 2000);
-    }, [])
+    // const [isLoader, setIsLoader] = useState(false)
+    const { dataLoading } = useGetData('products')
+    // useEffect(() => {
+    //   setIsLoader(true)
+    //   setTimeout(() => {
+    //     setIsLoader(false)
+    //   }, 2000);
+    // }, [])
     return (
       <div className="app">
-        {isLoader ? (<Loader />) : (
+        {dataLoading ? (<Loader />) : (
           <>
             <ProgressBar
               color="#8f0000"
