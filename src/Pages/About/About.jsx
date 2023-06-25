@@ -1,14 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsGithub } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import { AiOutlineCloudDownload } from 'react-icons/ai';
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
+
 import './about.scss'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import { db } from '../../firebase.config';
+import { doc, getDoc } from 'firebase/firestore';
 const About = () => {
-    useEffect(() => {
-        AOS.init();
-    }, [])
+    const [cv, setcv] = useState('')
+
+    const docRef = doc(db, "cv", '1');
+  useEffect(() => {
+    AOS.init();
+    const getProduct = async () => {
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        setcv(docSnap.data())
+      } else {
+        console.log("No such document!");
+      }
+
+    }
+    getProduct()
+
+  }, [])
+console.log(cv.cv)
     return (
         <div className='About'>
             <div className="left" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>
@@ -85,7 +106,7 @@ const About = () => {
                 <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='1400'>
                     <div className="dot"></div>
                     <h1>my resume</h1>
-                    <div className="icon"><a href="/AhmedOsama-FrontendDev-CV.pdf" target="_blank" rel="noopener noreferrer" download="AhmedOsama-FrontendDev-CV"><AiOutlineCloudDownload /></a></div>
+                    <div className="icon"><a href={cv.cv} target="_blank" rel="noopener noreferrer" download={cv.cv}><BsBoxArrowInUpRight /></a></div>
                 </div>
             </div>
         </div>

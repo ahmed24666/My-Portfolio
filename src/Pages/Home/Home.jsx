@@ -2,11 +2,20 @@ import React, { useEffect, useRef } from 'react'
 import './home.scss'
 import { AiOutlineSwapLeft } from 'react-icons/ai';
 import { AiOutlineSwapRight } from 'react-icons/ai';
-import products from '../../Component/Products';
 import { Link } from 'react-router-dom'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import useGetData from '../../custom-hook/useGetData'
+
 const Home = () => {
+    
+    const { data: getProducts } = useGetData('progects')
+    const products = getProducts.sort((a, b) => {
+        return a.id - b.id
+        })
+
+
+
     useEffect(() => {
         AOS.init();
     }, [])
@@ -23,9 +32,8 @@ const Home = () => {
         <div className='Home'>
             <div className="container" ref={scrollRef} >
                 {products.map((item, i) => {
-                    const randNum = Math.floor(Math.random() * 10) + 1;
                     return (
-                        <div className={`slide slide${randNum}`} key={item.id} >
+                        <div className='slide' key={item.id} >
                             <div class="inner-inner-container" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='300'>
                                 <div class="top-section">
                                     <h1>

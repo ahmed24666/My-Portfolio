@@ -7,71 +7,97 @@ import { useParams } from 'react-router-dom';
 import products from './../../Component/Products'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import { useState } from 'react';
+import { db } from '../../firebase.config';
+import { doc, getDoc } from 'firebase/firestore';
 const Product = () => {
     const { Id } = useParams()
-    const choosen = products.find((item) => item.id == Id)
-    useEffect(() => {
-        AOS.init();
-    }, [])
+    // const product = products.find((item) => item.id == Id)
+    const [product, setproduct] = useState({})
+
+    const docRef = doc(db, "progects", Id);
+  useEffect(() => {
+    AOS.init();
+    const getProduct = async () => {
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        setproduct(docSnap.data())
+      } else {
+        console.log("No such document!");
+      }
+
+    }
+    getProduct()
+
+  }, [])
+
     return (
         <div className='Product'>
             <div className="image" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='300'>
-                <img src={choosen.img} alt="" />
+                <img src={product.img} alt="" />
             </div>
             <div className="disc">
                 <div className="head small" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='300'>
                     <div className="dot"></div>
                     <h1>live demo</h1>
-                    <a href={choosen.link} target="_blank"><BsBoxArrowInUpRight /></a>
+                    <a href={product.link} target="_blank"><BsBoxArrowInUpRight /></a>
                 </div>
                 <div className="head"data-aos="fade-in" data-aos-duration="2000" data-aos-delay='400'>
                     <div className="dot"></div>
                     <h1>discription</h1>
                 </div>
-                <p data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>{choosen.p}
+                <p data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>{product.p}
                 </p>
                 <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='600'>
                     <div className="dot"></div>
                     <h1>done using</h1>
                 </div>
                 <div className="using" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='700'>
-                    {choosen.react && (
+                    {product.react && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">React</div>
                         </div>
                     )}
-                    {choosen.sass && (
+                    {product.sass && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">Sass</div>
                         </div>
                     )}
-                    {choosen.reduxtoolkit && (
+                    {product.reduxtoolkit && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">Redux Toolkit</div>
                         </div>
                     )}
-                    {choosen.fakeData && (
+                    {product.firebase && (
+                        <div className="item">
+                            <div className="dots"></div>
+                            <div className="name">Firebase</div>
+                        </div>
+                    )}
+                    {product.fakeData && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">Fake Data</div>
                         </div>
                     )}
-                    {choosen.api && (
+                    {product.api && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">api</div>
                         </div>
                     )}
-                    {choosen.bootstrap && (
+                    {product.bootstrap && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">bootstrap</div>
                         </div>
                     )}
-                    {choosen.css && (
+                    {product.css && (
                         <div className="item">
                             <div className="dots"></div>
                             <div className="name">css</div>
@@ -91,7 +117,7 @@ const Product = () => {
                     </div>
                     <div className="item">
                         <div className="dots"></div>
-                        <div className="name"><a href={choosen.git} target="_blank">github</a></div>
+                        <div className="name"><a href={product.git} target="_blank">github</a></div>
                         <div className="icon"><BsGithub /></div>
                     </div>
                 </div>
