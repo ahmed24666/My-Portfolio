@@ -11,7 +11,7 @@ const Home = () => {
     
     const { data: getProducts } = useGetData('progects')
     const products = getProducts.sort((a, b) => {
-        return a.id - b.id
+        return a.sort - b.sort
         })
 
 
