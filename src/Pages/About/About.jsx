@@ -13,23 +13,23 @@ const About = () => {
     const [cv, setcv] = useState('')
 
     const docRef = doc(db, "cv", '1');
-  useEffect(() => {
-    AOS.init();
-    const getProduct = async () => {
-      const docSnap = await getDoc(docRef);
+    useEffect(() => {
+        AOS.init();
+        const getProduct = async () => {
+            const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        setcv(docSnap.data())
-      } else {
-        console.log("No such document!");
-      }
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setcv(docSnap.data())
+            } else {
+                console.log("No such document!");
+            }
 
-    }
-    getProduct()
+        }
+        getProduct()
 
-  }, [])
-console.log(cv.cv)
+    }, [])
+    console.log(cv.cv)
     return (
         <div className='About'>
             <div className="left" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>
@@ -39,9 +39,30 @@ console.log(cv.cv)
             <div className="right">
                 <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>
                     <div className="dot"></div>
+                    <h1>my resume</h1>
+                    <div className="icon"><a href={cv.cv} target="_blank" rel="noopener noreferrer" download={cv.cv}><BsBoxArrowInUpRight /></a></div>
+                </div>
+                <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='700'>
+                    <div className="dot"></div>
+                    <h1>social media</h1>
+                </div>
+                <div className="using" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='900'>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name"><a href='https://www.linkedin.com/in/ahmed-osama-1499b1146' target="_blank">LinkedIn</a></div>
+                        <div className="icon"><BsLinkedin /></div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name"><a href='https://github.com/ahmed24666' target="_blank">github</a></div>
+                        <div className="icon"><BsGithub /></div>
+                    </div>
+                </div>
+                <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='1100'>
+                    <div className="dot"></div>
                     <h1>skills</h1>
                 </div>
-                <div className="using" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='700'>
+                <div className="using" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='1300'>
                     <div className="item">
                         <div className="dots"></div>
                         <div className="name">html</div>
@@ -87,27 +108,8 @@ console.log(cv.cv)
                         <div className="name">Restful APIs</div>
                     </div>
                 </div>
-                <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='900'>
-                    <div className="dot"></div>
-                    <h1>social media</h1>
-                </div>
-                <div className="using" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='1200'>
-                    <div className="item">
-                        <div className="dots"></div>
-                        <div className="name"><a href='https://www.linkedin.com/in/ahmed-osama-1499b1146' target="_blank">LinkedIn</a></div>
-                        <div className="icon"><BsLinkedin /></div>
-                    </div>
-                    <div className="item">
-                        <div className="dots"></div>
-                        <div className="name"><a href='https://github.com/ahmed24666' target="_blank">github</a></div>
-                        <div className="icon"><BsGithub /></div>
-                    </div>
-                </div>
-                <div className="head" >
-                    <div className="dot"></div>
-                    <h1>my resume</h1>
-                    <div className="icon"><a href={cv.cv} target="_blank" rel="noopener noreferrer" download={cv.cv}><BsBoxArrowInUpRight /></a></div>
-                </div>
+                
+
             </div>
         </div>
     )
