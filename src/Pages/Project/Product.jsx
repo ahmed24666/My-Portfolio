@@ -46,7 +46,7 @@ const Product = () => {
                 </div>
                 <div className="head"data-aos="fade-in" data-aos-duration="2000" data-aos-delay='400'>
                     <div className="dot"></div>
-                    <h1>discription</h1>
+                    <h1>description</h1>
                 </div>
                 <p data-aos="fade-in" data-aos-duration="2000" data-aos-delay='500'>{product.p}
                 </p>
