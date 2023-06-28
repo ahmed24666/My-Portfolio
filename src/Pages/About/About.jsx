@@ -103,7 +103,7 @@ console.log(cv.cv)
                         <div className="icon"><BsGithub /></div>
                     </div>
                 </div>
-                <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='1400'>
+                <div className="head" >
                     <div className="dot"></div>
                     <h1>my resume</h1>
                     <div className="icon"><a href={cv.cv} target="_blank" rel="noopener noreferrer" download={cv.cv}><BsBoxArrowInUpRight /></a></div>
