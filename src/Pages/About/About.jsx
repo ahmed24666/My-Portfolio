@@ -101,7 +101,11 @@ const About = () => {
                     </div>
                     <div className="item">
                         <div className="dots"></div>
-                        <div className="name">Json</div>
+                        <div className="name">OOP</div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name">Problem Solving</div>
                     </div>
                     <div className="item">
                         <div className="dots"></div>
