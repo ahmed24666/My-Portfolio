@@ -24,14 +24,6 @@ function App() {
       <div className="app">
         {dataLoading ? (<Loader />) : (
           <>
-            <ProgressBar
-              color="#8f0000"
-              height={3}
-              direction="right"
-              position="top"
-              gradient={true}
-              gradientColor="black"
-            />
             <AnimatedCursor
               innerSize={10}
               outerSize={30}

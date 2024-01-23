@@ -103,6 +103,24 @@ const Product = () => {
                             <div className="name">css</div>
                         </div>
                     )}
+                    {product.next && (
+                        <div className="item">
+                            <div className="dots"></div>
+                            <div className="name">next js</div>
+                        </div>
+                    )}
+                    {product.tailwind && (
+                        <div className="item">
+                            <div className="dots"></div>
+                            <div className="name">tailwind</div>
+                        </div>
+                    )}
+                    {product.typescript && (
+                        <div className="item">
+                            <div className="dots"></div>
+                            <div className="name">typescript</div>
+                        </div>
+                    )}
 
                 </div>
                 <div className="head" data-aos="fade-in" data-aos-duration="2000" data-aos-delay='700'>

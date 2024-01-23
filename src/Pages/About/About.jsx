@@ -73,11 +73,19 @@ const About = () => {
                     </div>
                     <div className="item">
                         <div className="dots"></div>
-                        <div className="name">javaScript fundamental </div>
+                        <div className="name">javaScript</div>
                     </div>
                     <div className="item">
                         <div className="dots"></div>
                         <div className="name">React</div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name">Next Js</div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name">Typescript</div>
                     </div>
                     <div className="item">
                         <div className="dots"></div>
@@ -86,6 +94,10 @@ const About = () => {
                     <div className="item">
                         <div className="dots"></div>
                         <div className="name">react bootstrap</div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name">Tailwind</div>
                     </div>
                     <div className="item">
                         <div className="dots"></div>
@@ -101,15 +113,11 @@ const About = () => {
                     </div>
                     <div className="item">
                         <div className="dots"></div>
-                        <div className="name">OOP</div>
-                    </div>
-                    <div className="item">
-                        <div className="dots"></div>
-                        <div className="name">Problem Solving</div>
-                    </div>
-                    <div className="item">
-                        <div className="dots"></div>
                         <div className="name">Restful APIs</div>
+                    </div>
+                    <div className="item">
+                        <div className="dots"></div>
+                        <div className="name">SSR</div>
                     </div>
                 </div>
                 
