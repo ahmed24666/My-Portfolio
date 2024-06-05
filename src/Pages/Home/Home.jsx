@@ -39,7 +39,7 @@ const Home = () => {
                                     <h1>
                                         {item.name}
                                     </h1>
-                                    <p>{item.p.length > 675 ? item.p.slice(0, 675) + ' ...' : item.p}</p>
+                                    <p>{item.p.length > 675 ? item.p.slice(0, 575) + ' ...' : item.p}</p>
                                 </div>
                                 <Link to={`/product/${item.id}`}>
                                     <div class="bottom-section">view</div>
