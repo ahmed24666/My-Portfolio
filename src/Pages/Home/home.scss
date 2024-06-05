@@ -28,6 +28,14 @@
       }
       &:hover{
         background-color:#8f0000d3 ;
+        .top-section {
+          p {
+            opacity: 0;
+          }
+          img{
+            opacity: 1 !important;
+          }
+        }
       }
       @media (max-width:1150px) {
         min-width: 50vw;
@@ -70,6 +78,7 @@
             font-family: var(--f);
           }
         }
+        
         .bottom-section {
           color: #8f0000;
           font-size: 25px;
